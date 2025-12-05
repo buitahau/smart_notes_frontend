@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
@@ -621,9 +622,21 @@ function AppContent() {
             <div>
               <div className="text-white mb-3">Product</div>
               <div className="space-y-2 text-sm">
-                <div>Features</div>
-                <div>Privacy</div>
-                <div>Support</div>
+                <div>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Features
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/privacy" className="hover:text-white transition-colors">
+                    Privacy
+                  </Link>
+                </div>
+                <div>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Support
+                  </Link>
+                </div>
               </div>
             </div>
             <div>
