@@ -127,7 +127,7 @@ export function ResetPassword() {
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
               <StickyNote className="w-7 h-7 text-white" />
             </div>
-            <span className="text-2xl">Smart Note</span>
+            <span className="text-2xl">Smart Notes</span>
           </div>
           <h1 className="text-3xl mb-2">Reset Your Password</h1>
           <p className="text-gray-600">

@@ -96,7 +96,7 @@ function AppContent() {
   const features = [
     {
       icon: <StickyNote className="w-8 h-8" />,
-      title: "Smart Note Management",
+      title: "Smart Notes Management",
       description: "Create, edit, update, and delete notes seamlessly within your browser. Keep all your thoughts organized in one place."
     },
     {
@@ -229,7 +229,7 @@ function AppContent() {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <StickyNote className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl">Smart Note</span>
+            <span className="text-xl">Smart Notes</span>
           </div>
           <div className="flex gap-3 items-center">
             <Button variant="ghost" size="sm" onClick={() => scrollToSection('hero')}>Home</Button>
@@ -309,7 +309,7 @@ function AppContent() {
                 </span>
               </h1>
               <p className="text-gray-600 text-lg">
-                Smart Note transforms how you capture and organize information online. 
+                Smart Notes transforms how you capture and organize information online. 
                 Create notes instantly, find them with AI, and never forget important details.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -356,7 +356,7 @@ function AppContent() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-3xl"></div>
               <img 
                 src="https://images.unsplash.com/photo-1689001164659-aa239f92853e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0aXZpdHklMjB3b3Jrc3BhY2UlMjBub3Rlc3xlbnwxfHx8fDE3NjI5NDAyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Smart Note in action"
+                alt="Smart Notes in action"
                 className="relative rounded-2xl shadow-2xl"
               />
             </div>
@@ -371,7 +371,7 @@ function AppContent() {
             <Badge variant="secondary" className="mb-4">Features</Badge>
             <h2 className="text-4xl mb-4">Everything you need to stay organized</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Smart Note combines powerful features with an intuitive interface to help you capture, 
+              Smart Notes combines powerful features with an intuitive interface to help you capture, 
               organize, and recall information effortlessly.
             </p>
           </div>
@@ -417,7 +417,7 @@ function AppContent() {
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <Badge variant="secondary" className="mb-4">Why Smart Note?</Badge>
+              <Badge variant="secondary" className="mb-4">Why Smart Notes?</Badge>
               <h2 className="text-4xl mb-6">Work smarter, not harder</h2>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -439,9 +439,9 @@ function AppContent() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">What's Coming</Badge>
-            <h2 className="text-4xl mb-4">Smart Note Feature Roadmap</h2>
+            <h2 className="text-4xl mb-4">Smart Notes Feature Roadmap</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We're constantly evolving Smart Note with new features to make your note-taking experience even more powerful and intelligent.
+              We're constantly evolving Smart Notes with new features to make your note-taking experience even more powerful and intelligent.
             </p>
           </div>
 
@@ -623,7 +623,7 @@ function AppContent() {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <StickyNote className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white text-xl">Smart Note</span>
+                <span className="text-white text-xl">Smart Notes</span>
               </div>
               <p className="text-sm max-w-md">
                 Your intelligent browser companion for effortless note-taking. 
@@ -660,7 +660,7 @@ function AppContent() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-            © 2025 Smart Note. All rights reserved.
+            © 2025 Smart Notes. All rights reserved.
           </div>
         </div>
       </footer>
