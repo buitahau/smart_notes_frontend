@@ -41,7 +41,7 @@ export function Dashboard() {
               <StickyNote className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xl">Smart Note</h1>
+              <h1 className="text-xl">Smart Notes</h1>
               <p className="text-xs text-gray-600">Welcome back, {user?.name}!</p>
             </div>
           </div>
@@ -145,7 +145,7 @@ export function Dashboard() {
           <StickyNote className="w-12 h-12 text-gray-400 mx-auto mb-4" />
           <h3 className="text-xl mb-2">This is a Demo Dashboard</h3>
           <p className="text-gray-600 mb-4">
-            Install the Smart Note browser extension to start creating and managing real notes!
+            Install the Smart Notes browser extension to start creating and managing real notes!
           </p>
           <Button 
             className="gap-2 bg-gradient-to-r from-blue-600 to-blue-700"

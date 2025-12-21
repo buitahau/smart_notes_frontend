@@ -27,6 +27,9 @@ const getInitialRoute = () => {
   return window.location.hash.slice(1) || '/';
 };
 
+const CHROME_URL = "https://chromewebstore.google.com/detail/smart-notes/kjknegjipfnbnlhfbjdnpgfaijpgkbhh";
+const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/smart-notes/";
+
 function AppContent() {
   const [currentRoute, setCurrentRoute] = useState(() => getInitialRoute());
   const { user, isAuthenticated, logout } = useAuth();
@@ -81,7 +84,7 @@ function AppContent() {
   };
 
   // Flag to control pricing section visibility
-  const SHOW_PRICING = true;
+  const SHOW_PRICING = false;
 
   const scrollToSection = (sectionId: string) => {
     if (typeof document === 'undefined') return;
@@ -93,7 +96,7 @@ function AppContent() {
   const features = [
     {
       icon: <StickyNote className="w-8 h-8" />,
-      title: "Smart Note Management",
+      title: "Smart Notes Management",
       description: "Create, edit, update, and delete notes seamlessly within your browser. Keep all your thoughts organized in one place."
     },
     {
@@ -226,7 +229,7 @@ function AppContent() {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <StickyNote className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl">Smart Note</span>
+            <span className="text-xl">Smart Notes</span>
           </div>
           <div className="flex gap-3 items-center">
             <Button variant="ghost" size="sm" onClick={() => scrollToSection('hero')}>Home</Button>
@@ -273,13 +276,14 @@ function AppContent() {
                   variant="ghost" 
                   size="sm" 
                   onClick={() => window.location.hash = '#/login'}
+                  className="hidden-component"
                 >
                   Sign In
                 </Button>
                 <Button 
                   variant="default" 
                   size="sm" 
-                  className="bg-gradient-to-r from-blue-600 to-blue-700"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hidden-component"
                   onClick={() => window.location.hash = '#/signup'}
                 >
                   Get Started
@@ -306,28 +310,32 @@ function AppContent() {
                 </span>
               </h1>
               <p className="text-gray-600 text-lg">
-                Smart Note transforms how you capture and organize information online. 
+                Smart Notes transforms how you capture and organize information online. 
                 Create notes instantly, find them with AI, and never forget important details.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   size="lg" 
                   className="gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                  onClick={() => window.location.hash = '#/signup'}
+                  asChild
                 >
-                  <Chrome className="w-5 h-5" />
-                  Add to Chrome
+                  <Link href={CHROME_URL} target="_blank" rel="noreferrer">
+                    <Chrome className="w-5 h-5" />
+                    Add to Chrome
+                  </Link>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="gap-2"
-                  onClick={() => window.location.hash = '#/signup'}
+                  className="gap-2 hidden-component"
+                  asChild
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
-                  </svg>
-                  Add to Firefox
+                  <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
+                    </svg>
+                    Add to Firefox
+                  </Link>
                 </Button>
               </div>
               <div className="flex items-center gap-6 pt-4 text-sm text-gray-600">
@@ -349,7 +357,7 @@ function AppContent() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-3xl"></div>
               <img 
                 src="https://images.unsplash.com/photo-1689001164659-aa239f92853e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0aXZpdHklMjB3b3Jrc3BhY2UlMjBub3Rlc3xlbnwxfHx8fDE3NjI5NDAyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Smart Note in action"
+                alt="Smart Notes in action"
                 className="relative rounded-2xl shadow-2xl"
               />
             </div>
@@ -364,7 +372,7 @@ function AppContent() {
             <Badge variant="secondary" className="mb-4">Features</Badge>
             <h2 className="text-4xl mb-4">Everything you need to stay organized</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Smart Note combines powerful features with an intuitive interface to help you capture, 
+              Smart Notes combines powerful features with an intuitive interface to help you capture, 
               organize, and recall information effortlessly.
             </p>
           </div>
@@ -410,7 +418,7 @@ function AppContent() {
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <Badge variant="secondary" className="mb-4">Why Smart Note?</Badge>
+              <Badge variant="secondary" className="mb-4">Why Smart Notes?</Badge>
               <h2 className="text-4xl mb-6">Work smarter, not harder</h2>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -432,9 +440,9 @@ function AppContent() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">What's Coming</Badge>
-            <h2 className="text-4xl mb-4">Smart Note Feature Roadmap</h2>
+            <h2 className="text-4xl mb-4">Smart Notes Feature Roadmap</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We're constantly evolving Smart Note with new features to make your note-taking experience even more powerful and intelligent.
+              We're constantly evolving Smart Notes with new features to make your note-taking experience even more powerful and intelligent.
             </p>
           </div>
 
@@ -580,21 +588,25 @@ function AppContent() {
               size="lg" 
               variant="secondary" 
               className="gap-2"
-              onClick={() => window.location.hash = '#/signup'}
+              asChild
             >
-              <Chrome className="w-5 h-5" />
-              Add to Chrome - It's Free
+              <Link href={CHROME_URL} target="_blank" rel="noreferrer">
+                <Chrome className="w-5 h-5" />
+                Add to Chrome - It's Free
+              </Link>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="gap-2 bg-transparent text-white border-white hover:bg-white/10"
-              onClick={() => window.location.hash = '#/signup'}
+              className="gap-2 bg-transparent text-white border-white hover:bg-white/10 hidden-component"
+              asChild
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
-              </svg>
-              Add to Firefox - It's Free
+              <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
+                </svg>
+                Add to Firefox - It's Free
+              </Link>
             </Button>
           </div>
           <p className="mt-8 text-sm opacity-75">
@@ -612,7 +624,7 @@ function AppContent() {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <StickyNote className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white text-xl">Smart Note</span>
+                <span className="text-white text-xl">Smart Notes</span>
               </div>
               <p className="text-sm max-w-md">
                 Your intelligent browser companion for effortless note-taking. 
@@ -649,7 +661,7 @@ function AppContent() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-            © 2025 Smart Note. All rights reserved.
+            © 2025 Smart Notes. All rights reserved.
           </div>
         </div>
       </footer>
