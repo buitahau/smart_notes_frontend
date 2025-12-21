@@ -84,7 +84,7 @@ function AppContent() {
   };
 
   // Flag to control pricing section visibility
-  const SHOW_PRICING = true;
+  const SHOW_PRICING = false;
 
   const scrollToSection = (sectionId: string) => {
     if (typeof document === 'undefined') return;
@@ -276,13 +276,14 @@ function AppContent() {
                   variant="ghost" 
                   size="sm" 
                   onClick={() => window.location.hash = '#/login'}
+                  className="hidden-component"
                 >
                   Sign In
                 </Button>
                 <Button 
                   variant="default" 
                   size="sm" 
-                  className="bg-gradient-to-r from-blue-600 to-blue-700"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hidden-component"
                   onClick={() => window.location.hash = '#/signup'}
                 >
                   Get Started
