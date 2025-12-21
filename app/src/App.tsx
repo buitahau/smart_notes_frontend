@@ -27,6 +27,9 @@ const getInitialRoute = () => {
   return window.location.hash.slice(1) || '/';
 };
 
+const CHROME_URL = "https://chromewebstore.google.com/detail/smart-notes/kjknegjipfnbnlhfbjdnpgfaijpgkbhh";
+const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/smart-notes/";
+
 function AppContent() {
   const [currentRoute, setCurrentRoute] = useState(() => getInitialRoute());
   const { user, isAuthenticated, logout } = useAuth();
@@ -313,21 +316,25 @@ function AppContent() {
                 <Button 
                   size="lg" 
                   className="gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                  onClick={() => window.location.hash = '#/signup'}
+                  asChild
                 >
-                  <Chrome className="w-5 h-5" />
-                  Add to Chrome
+                  <Link href={CHROME_URL} target="_blank" rel="noreferrer">
+                    <Chrome className="w-5 h-5" />
+                    Add to Chrome
+                  </Link>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="gap-2"
-                  onClick={() => window.location.hash = '#/signup'}
+                  className="gap-2 hidden-component"
+                  asChild
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
-                  </svg>
-                  Add to Firefox
+                  <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
+                    </svg>
+                    Add to Firefox
+                  </Link>
                 </Button>
               </div>
               <div className="flex items-center gap-6 pt-4 text-sm text-gray-600">
@@ -580,21 +587,25 @@ function AppContent() {
               size="lg" 
               variant="secondary" 
               className="gap-2"
-              onClick={() => window.location.hash = '#/signup'}
+              asChild
             >
-              <Chrome className="w-5 h-5" />
-              Add to Chrome - It's Free
+              <Link href={CHROME_URL} target="_blank" rel="noreferrer">
+                <Chrome className="w-5 h-5" />
+                Add to Chrome - It's Free
+              </Link>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="gap-2 bg-transparent text-white border-white hover:bg-white/10"
-              onClick={() => window.location.hash = '#/signup'}
+              className="gap-2 bg-transparent text-white border-white hover:bg-white/10 hidden-component"
+              asChild
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
-              </svg>
-              Add to Firefox - It's Free
+              <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.786 17.57c-1.108.95-3.118 1.43-4.924 1.43-2.146 0-3.896-.614-5.25-1.843v-1.714h.857c.393 0 .715-.321.715-.714v-1.286c0-.393-.322-.714-.715-.714h-.857V11.43h.857c.393 0 .715-.321.715-.714V9.43c0-.393-.322-.714-.715-.714h-.857V7.43c1.354-1.229 3.104-1.843 5.25-1.843 1.806 0 3.816.48 4.924 1.43.393.336.857.95.857 1.713v7.143c0 .763-.464 1.377-.857 1.697z"/>
+                </svg>
+                Add to Firefox - It's Free
+              </Link>
             </Button>
           </div>
           <p className="mt-8 text-sm opacity-75">
