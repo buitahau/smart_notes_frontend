@@ -46,7 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user,
         login,
         logout,
-        isAuthenticated: !!user,
+        // isAuthenticated: !!user,
+        isAuthenticated: false
       }}
     >
       {children}
