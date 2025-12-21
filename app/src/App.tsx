@@ -1,15 +1,13 @@
 'use client';
+/* eslint-disable react/no-unescaped-entities */
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
 import { Badge } from "./components/ui/badge";
-import { Chrome, Brain, StickyNote, MessageSquare, Bell, Check, Sparkles, FileText, ListChecks, Clock, Lightbulb, FolderTree, Search, Users, Zap, LogOut, User } from "lucide-react";
-// import { ResetPassword } from "./components/ResetPassword";
-import { AuthPage } from "./components/AuthPage";
-import { Dashboard } from "./components/Dashboard";
-import { AuthProvider, useAuth } from "./components/AuthContext";
+import { Chrome, Brain, StickyNote, MessageSquare, Bell, Check, Sparkles, FileText, ListChecks, Clock, Lightbulb, FolderTree, Search, Users, LogOut, User } from "lucide-react";
+import { useAuth } from "./components/AuthContext";
 import { Avatar, AvatarFallback } from "./components/ui/avatar";
 import {
   DropdownMenu,
@@ -20,60 +18,13 @@ import {
   DropdownMenuTrigger,
 } from "./components/ui/dropdown-menu";
 
-const getInitialRoute = () => {
-  if (typeof window === 'undefined') {
-    return '/';
-  }
-  return window.location.hash.slice(1) || '/';
-};
-
 const CHROME_URL = "https://chromewebstore.google.com/detail/smart-notes/kjknegjipfnbnlhfbjdnpgfaijpgkbhh";
 const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/aii-notes";
 
-function AppContent() {
-  const [currentRoute, setCurrentRoute] = useState(() => getInitialRoute());
+export default function App() {
+  const router = useRouter();
   const { user, isAuthenticated, logout } = useAuth();
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const handleHashChange = () => {
-      setCurrentRoute(window.location.hash.slice(1) || '/');
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  // Check if we're on the reset password page (also check query params)
-  const searchParams = typeof window !== 'undefined' ? window.location.search : '';
-  const isResetPasswordPage = currentRoute === '/reset-password' || 
-                                searchParams.includes('token=');
-
-  // Check if we're on auth pages
-  const isLoginPage = currentRoute === '/login';
-  const isSignupPage = currentRoute === '/signup';
-  const isDashboardPage = currentRoute === '/dashboard';
-
-  // Route to appropriate page
-  if (isResetPasswordPage) {
-    // return <ResetPassword />;
-  }
-  
-  // Redirect to dashboard if already authenticated
-  if (isLoginPage || isSignupPage) {
-    if (isAuthenticated) {
-      window.location.hash = '#/dashboard';
-      return null;
-    }
-    return <AuthPage mode={isLoginPage ? "login" : "signup"} />;
-  }
-  
-  if (isDashboardPage) {
-    return <Dashboard />;
-  }
-  
-  // Helper function to get user initials
   const getUserInitials = (name: string) => {
     return name
       .split(' ')
@@ -93,6 +44,11 @@ function AppContent() {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
+  };
+  const goToDashboard = () => router.push("/dashboard");
   const features = [
     {
       icon: <StickyNote className="w-8 h-8" />,
@@ -259,12 +215,12 @@ function AppContent() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => window.location.hash = '#/dashboard'}>
+                  <DropdownMenuItem onClick={goToDashboard}>
                     <User className="mr-2 h-4 w-4" />
                     <span>Dashboard</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={logout} className="text-red-600">
+                  <DropdownMenuItem onClick={handleLogout} className="text-red-600">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
                   </DropdownMenuItem>
@@ -272,21 +228,21 @@ function AppContent() {
               </DropdownMenu>
             ) : (
               <>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => window.location.hash = '#/login'}
+                <Button
+                  variant="ghost"
+                  size="sm"
                   className="hidden-component"
+                  asChild
                 >
-                  Sign In
+                  <Link href="/login">Sign In</Link>
                 </Button>
-                <Button 
-                  variant="default" 
-                  size="sm" 
+                <Button
+                  variant="default"
+                  size="sm"
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hidden-component"
-                  onClick={() => window.location.hash = '#/signup'}
+                  asChild
                 >
-                  Get Started
+                  <Link href="/login?mode=signup">Get Started</Link>
                 </Button>
               </>
             )}
@@ -549,7 +505,7 @@ function AppContent() {
                         : ''
                     }`}
                     variant={plan.popular ? 'default' : 'outline'}
-                    onClick={() => window.location.hash = '#/signup'}
+                    onClick={() => router.push("/login?mode=signup")}
                   >
                     {plan.name === 'Free' ? 'Get Started' : `Get ${plan.name}`}
                   </Button>
@@ -666,13 +622,5 @@ function AppContent() {
         </div>
       </footer>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
   );
 }

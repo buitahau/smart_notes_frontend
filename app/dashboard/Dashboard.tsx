@@ -1,10 +1,14 @@
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+'use client';
+
+import { useRouter } from "next/navigation";
+import { Button } from "../src/components/ui/button";
+import { Card } from "../src/components/ui/card";
 import { StickyNote, Plus, Search, Calendar, Tag, Trash2, Edit } from "lucide-react";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../src/components/AuthContext";
 
 export function Dashboard() {
   const { user } = useAuth();
+  const router = useRouter();
 
   // Mock notes data
   const notes = [
@@ -45,10 +49,10 @@ export function Dashboard() {
               <p className="text-xs text-gray-600">Welcome back, {user?.name}!</p>
             </div>
           </div>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="sm"
-            onClick={() => window.location.hash = ''}
+            onClick={() => router.push("/")}
           >
             Back to Home
           </Button>
@@ -147,9 +151,9 @@ export function Dashboard() {
           <p className="text-gray-600 mb-4">
             Install the Smart Notes browser extension to start creating and managing real notes!
           </p>
-          <Button 
+          <Button
             className="gap-2 bg-gradient-to-r from-blue-600 to-blue-700"
-            onClick={() => window.location.hash = ''}
+            onClick={() => router.push("/")}
           >
             <StickyNote className="w-4 h-4" />
             Get the Extension

@@ -1,13 +1,17 @@
+'use client';
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Card } from "./ui/card";
-import { Alert } from "./ui/alert";
-import { Separator } from "./ui/separator";
+import { Button } from "../src/components/ui/button";
+import { Input } from "../src/components/ui/input";
+import { Label } from "../src/components/ui/label";
+import { Card } from "../src/components/ui/card";
+import { Alert } from "../src/components/ui/alert";
+import { Separator } from "../src/components/ui/separator";
 import { StickyNote, Eye, EyeOff, Mail, Lock, Chrome } from "lucide-react";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../src/components/AuthContext";
 
 interface AuthFormData {
   email: string;
@@ -17,14 +21,16 @@ interface AuthFormData {
 
 interface AuthPageProps {
   mode: "login" | "signup";
+  onModeChange?: (mode: "login" | "signup") => void;
 }
 
-export function AuthPage({ mode }: AuthPageProps) {
+export function AuthPage({ mode, onModeChange }: AuthPageProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const isLogin = mode === "login";
   const { login } = useAuth();
+  const router = useRouter();
 
   const {
     register,
@@ -56,8 +62,9 @@ export function AuthPage({ mode }: AuthPageProps) {
       
       login(mockGoogleUser);
       console.log("Google authentication successful");
-      window.location.hash = ""; // Redirect to home
-    } catch (err) {
+      router.push("/dashboard");
+    } catch (error) {
+      console.error(error);
       setError("Failed to authenticate with Google. Please try again.");
     } finally {
       setIsLoading(false);
@@ -88,12 +95,23 @@ export function AuthPage({ mode }: AuthPageProps) {
       
       login(userData);
       console.log(`${isLogin ? 'Login' : 'Signup'} successful`, data);
-      window.location.hash = ""; // Redirect to home
-    } catch (err) {
+      router.push("/dashboard");
+    } catch (error) {
+      console.error(error);
       setError(`Failed to ${isLogin ? 'login' : 'sign up'}. Please try again.`);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleModeSwitch = () => {
+    const nextMode = isLogin ? "signup" : "login";
+    if (onModeChange) {
+      onModeChange(nextMode);
+      return;
+    }
+    const query = nextMode === "signup" ? "?mode=signup" : "";
+    router.replace(`/login${query}`);
   };
 
   return (
@@ -101,12 +119,12 @@ export function AuthPage({ mode }: AuthPageProps) {
       <div className="w-full max-w-md">
         {/* Logo and Header */}
         <div className="text-center mb-8">
-          <a href="#/" className="inline-flex items-center justify-center gap-2 mb-4 group">
+          <Link href="/" className="inline-flex items-center justify-center gap-2 mb-4 group">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
               <StickyNote className="w-7 h-7 text-white" />
             </div>
             <span className="text-2xl">Smart Notes</span>
-          </a>
+          </Link>
           <h1 className="text-3xl mb-2">
             {isLogin ? "Welcome Back" : "Create Account"}
           </h1>
@@ -213,12 +231,12 @@ export function AuthPage({ mode }: AuthPageProps) {
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
                 {isLogin && (
-                  <a
-                    href="#/reset-password"
+                  <Link
+                    href="/reset-password"
                     className="text-sm text-blue-600 hover:text-blue-700"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 )}
               </div>
               <div className="relative">
@@ -289,12 +307,13 @@ export function AuthPage({ mode }: AuthPageProps) {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-              <a
-                href={isLogin ? "#/signup" : "#/login"}
+              <button
+                type="button"
+                onClick={handleModeSwitch}
                 className="text-blue-600 hover:text-blue-700"
               >
                 {isLogin ? "Sign up" : "Sign in"}
-              </a>
+              </button>
             </p>
           </div>
         </Card>

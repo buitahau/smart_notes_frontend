@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+"use client";
+
+import { createContext, useContext, useState, ReactNode } from "react";
 
 interface User {
   name: string;
@@ -15,29 +17,31 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-
-  // Load user from localStorage on mount
-  useEffect(() => {
+  const [user, setUser] = useState<User | null>(() => {
+    if (typeof window === "undefined") return null;
     const storedUser = localStorage.getItem("smartnote_user");
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (e) {
-        localStorage.removeItem("smartnote_user");
-      }
+    if (!storedUser) return null;
+
+    try {
+      return JSON.parse(storedUser);
+    } catch {
+      localStorage.removeItem("smartnote_user");
+      return null;
     }
-  }, []);
+  });
 
   const login = (userData: User) => {
     setUser(userData);
-    localStorage.setItem("smartnote_user", JSON.stringify(userData));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("smartnote_user", JSON.stringify(userData));
+    }
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("smartnote_user");
-    window.location.hash = "";
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("smartnote_user");
+    }
   };
 
   return (
@@ -46,8 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user,
         login,
         logout,
-        // isAuthenticated: !!user,
-        isAuthenticated: false
+        isAuthenticated: !!user,
       }}
     >
       {children}

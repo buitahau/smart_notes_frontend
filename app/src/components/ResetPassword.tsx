@@ -62,7 +62,7 @@ export function ResetPassword() {
       
       // Redirect to login after 3 seconds
       setTimeout(() => {
-        window.location.hash = "#/login";
+        window.location.href = "/login";
       }, 3000);
     } catch (err) {
       setError("Failed to reset password. Please try again or request a new reset link.");
@@ -288,3 +288,4 @@ export function ResetPassword() {
     </div>
   );
 }
+"use client";
