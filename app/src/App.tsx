@@ -28,7 +28,7 @@ const getInitialRoute = () => {
 };
 
 const CHROME_URL = "https://chromewebstore.google.com/detail/smart-notes/kjknegjipfnbnlhfbjdnpgfaijpgkbhh";
-const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/smart-notes/";
+const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/aii-notes";
 
 function AppContent() {
   const [currentRoute, setCurrentRoute] = useState(() => getInitialRoute());
@@ -327,7 +327,7 @@ function AppContent() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="gap-2 hidden-component"
+                  className="gap-2"
                   asChild
                 >
                   <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
@@ -598,7 +598,7 @@ function AppContent() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="gap-2 bg-transparent text-white border-white hover:bg-white/10 hidden-component"
+              className="gap-2 bg-transparent text-white border-white hover:bg-white/10"
               asChild
             >
               <Link href={FIREFOX_URL} target="_blank" rel="noreferrer">
