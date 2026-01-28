@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Notes Privacy - Dark Theme Fixed Content</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "charcoal": "#1a1a1a",
+                        "off-white": "#f8f9fa"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .prose strong {
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-off-white min-h-screen selection:bg-primary/30">
+<div class="relative flex flex-col min-h-screen w-full">
+<header class="sticky top-0 z-50 w-full border-b border-solid border-slate-800 bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">sticky_note_2</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">Smart Notes</h2>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Security</a>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2 rounded-lg hover:bg-primary/90 transition-all flex items-center gap-2">
+<span>Get Extension</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[960px] mx-auto w-full px-6 py-12">
+<div class="flex flex-wrap gap-2 mb-6">
+<a class="text-[#9dabb9] text-sm font-medium hover:underline" href="#">Legal</a>
+<span class="text-[#9dabb9] text-sm font-medium">/</span>
+<span class="text-white text-sm font-medium">Privacy Policy</span>
+</div>
+<div class="flex flex-wrap justify-between items-end gap-6 mb-12">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-5xl font-extrabold leading-tight tracking-[-0.033em]">Privacy Policy</h1>
+<p class="text-[#9dabb9] text-base font-normal">Last updated: December 5, 2024</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-[#283039] text-white text-sm font-bold rounded-lg hover:bg-[#343e49] transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Download PDF</span>
+</button>
+</div>
+<article class="space-y-12">
+<section id="information-we-collect">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<h2 class="text-primary text-2xl font-bold">Information We Collect</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>We believe in radical transparency. Smart Notes is designed to collect the minimum amount of data necessary to provide a high-quality note-taking experience while you browse.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Account Information:</strong> Email address and username when you create an account.</li>
+<li><strong>Note Content:</strong> The text, highlights, and annotations you explicitly save using the extension.</li>
+<li><strong>Technical Metadata:</strong> Browser type, operating system, and extension version for troubleshooting and performance optimization.</li>
+<li><strong>Usage Data:</strong> Non-identifiable interaction metrics such as features used and frequency of notes taken.</li>
+</ul>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="how-we-use-your-email">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">mail</span>
+<h2 class="text-primary text-2xl font-bold">How We Use Your Email</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>Your email address is your primary identity within the Smart Notes ecosystem. We use it for:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<div class="p-5 rounded-xl bg-[#1c2630] border border-slate-800">
+<h4 class="text-white font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+                                    Authentication
+                                </h4>
+<p class="text-sm">Secure login and synchronization of your notes across multiple devices and browsers.</p>
+</div>
+<div class="p-5 rounded-xl bg-[#1c2630] border border-slate-800">
+<h4 class="text-white font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">update</span>
+                                    Support &amp; Updates
+                                </h4>
+<p class="text-sm">Responding to support tickets and notifying you about critical security or feature updates.</p>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="data-storage-security">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">encrypted</span>
+<h2 class="text-primary text-2xl font-bold">Data Storage &amp; Security</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>Security is not an afterthought; it is our foundation. All data transmitted between the extension and our servers is encrypted using industry-standard AES-256 encryption.</p>
+<p>We utilize Tier-1 cloud infrastructure providers that maintain rigorous security certifications (SOC2, ISO 27001) to host our databases and application logic. Your notes are stored in an encrypted format at rest.</p>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="sharing-disclosure">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">share</span>
+<h2 class="text-primary text-2xl font-bold">Sharing &amp; Disclosure</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>We do not sell, trade, or rent your personal information to third parties. We only disclose information when required by law or to protect our rights, or in the event of a merger or acquisition where your data would remain protected under similar terms.</p>
+<div class="bg-primary/10 border-l-4 border-primary p-6 my-6 rounded-r-lg">
+<p class="font-medium text-white italic">"Your privacy is our priority. We maintain strict internal protocols to ensure your data is never accessed without cause."</p>
+</div>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="your-choices-rights">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">rule</span>
+<h2 class="text-primary text-2xl font-bold">Your Choices &amp; Rights</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>You have full control over your data. At any time, you can:</p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Access &amp; Export:</strong> Download a full archive of all your saved notes and highlights.</li>
+<li><strong>Edit &amp; Delete:</strong> Modify or permanently remove any specific note or your entire account.</li>
+<li><strong>Communication Preferences:</strong> Opt-out of non-essential email communications via your account settings.</li>
+</ul>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="browser-extension-permissions">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">extension</span>
+<h2 class="text-primary text-2xl font-bold">Browser Extension Permissions</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>To function effectively, the Smart Notes extension requires specific browser permissions:</p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Active Tab:</strong> To allow you to take notes on the page you are currently viewing.</li>
+<li><strong>Storage:</strong> To save your preferences and local cache for offline access.</li>
+<li><strong>Context Menus:</strong> To add the "Save to Smart Notes" option when you right-click on text.</li>
+</ul>
+</div>
+</section>
+<hr class="border-slate-800"/>
+<section id="questions-or-requests">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">help</span>
+<h2 class="text-primary text-2xl font-bold">Questions or Requests?</h2>
+</div>
+<div class="prose prose-invert max-w-none text-slate-300 space-y-4 leading-relaxed">
+<p>If you have any questions about this Privacy Policy or our data practices, please don't hesitate to reach out. We aim to respond to all privacy-related inquiries within 48 hours.</p>
+</div>
+</section>
+<div class="pt-10 pb-20 flex flex-col sm:flex-row gap-4 justify-center">
+<button class="flex-1 max-w-[280px] flex items-center justify-center gap-2 h-14 bg-[#283039] text-white font-bold rounded-xl hover:bg-[#343e49] transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Return to Smart Notes</span>
+</button>
+<button class="flex-1 max-w-[280px] flex items-center justify-center gap-2 h-14 bg-primary text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(43,141,238,0.4)] transition-all">
+<span class="material-symbols-outlined">alternate_email</span>
+<span>Email Our Team</span>
+</button>
+</div>
+</article>
+</main>
+<footer class="border-t border-slate-800 py-8 bg-[#0c131a]">
+<div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2 text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">copyright</span>
+<span>2024 Smart Notes Extension Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 text-sm hover:text-primary" href="#">Terms of Service</a>
+<a class="text-slate-400 text-sm hover:text-primary" href="#">Cookie Policy</a>
+<a class="text-slate-400 text-sm hover:text-primary" href="#">GDPR Compliance</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

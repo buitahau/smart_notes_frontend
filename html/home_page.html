@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Notes - Complete Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-[#283039] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 lg:px-40 py-4">
+<div class="mx-auto flex max-w-[1200px] items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold leading-tight tracking-[-0.015em]">Smart Notes</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-9">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#home">Home</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#features">Features</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#roadmap">Roadmap</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                    Install Extension
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="px-6 md:px-10 lg:px-40 py-12 md:py-24" id="home">
+<div class="mx-auto max-w-[1000px]">
+<div class="@container">
+<div class="flex min-h-[520px] flex-col gap-8 rounded-2xl bg-cover bg-center bg-no-repeat items-center justify-center p-8 text-center" style='background-image: linear-gradient(rgba(16, 25, 34, 0.8) 0%, rgba(16, 25, 34, 0.95) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB65JMnWxOwh_dHWjlJ58HUCdJNc5vAC1j6FNcZCxk9iEo8fBDXRkBxk1bg3TaWBXN8RIBWWQrDVkyRa-GY-KRO0q4tA5C0UMrgp5huOn6VR5XioHpkw2lEDjrORdqKbSIbpebLRHVl5y2-DLj6cvmjziu3v3bwUFpec0yAEMCI8p17QTQxsgD85Zw3rXAcfsONq99ltm7pTgETdB3gnMLhIdqcXfU8BGJOsnUGz7uGg3zoGJj5IVWM_4txgU2bdqFsJi5Y2cdJqJQ");'>
+<div class="flex flex-col gap-4 max-w-[800px]">
+<h1 class="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl">
+                                Your intelligent browser companion for effortless note-taking.
+                            </h1>
+<h2 class="text-slate-300 text-lg font-medium leading-relaxed max-w-[600px] mx-auto">
+                                The lightweight browser extension that organizes your thoughts instantly. Productivity simplified for the modern web.
+                            </h2>
+</div>
+<div class="flex flex-wrap gap-4 justify-center">
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center gap-2 rounded-xl h-14 px-6 bg-primary text-white text-base font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Add to Chrome</span>
+</button>
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center gap-2 rounded-xl h-14 px-6 bg-slate-800 dark:bg-[#283039] text-white text-base font-bold hover:bg-slate-700 transition-all border border-slate-700">
+<span class="material-symbols-outlined">browser_updated</span>
+<span>Add to Firefox</span>
+</button>
+</div>
+<div class="mt-8 text-slate-400 text-sm font-semibold tracking-wide flex flex-wrap justify-center gap-4">
+<span>Free to use</span>
+<span class="text-primary">•</span>
+<span>Privacy-focused</span>
+<span class="text-primary">•</span>
+<span>Offline support</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 md:px-10 lg:px-40 py-20 bg-slate-50 dark:bg-[#0c141a]" id="features">
+<div class="mx-auto max-w-[1000px]">
+<div class="flex flex-col gap-12 @container">
+<div class="flex flex-col gap-4 text-center md:text-left">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest">Efficiency Redefined</h2>
+<h1 class="text-slate-900 dark:text-white text-3xl font-black leading-tight md:text-5xl tracking-tight max-w-[720px]">
+                            Powerful Features
+                        </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-medium leading-normal max-w-[600px]">Designed for maximum productivity and seamless note-taking right where you work.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] p-8 shadow-sm hover:border-primary transition-colors group">
+<div class="flex flex-col gap-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Management</h2>
+<p class="text-slate-600 dark:text-[#9dabb9] text-base leading-relaxed">Organize your notes with powerful folder structures and tag systems built for speed.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] p-8 shadow-sm hover:border-primary transition-colors group">
+<div class="flex flex-col gap-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">AI Assistant</h2>
+<p class="text-slate-600 dark:text-[#9dabb9] text-base leading-relaxed">Integrated AI tools to help you draft, refine, and improve your thoughts on the fly.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] p-8 shadow-sm hover:border-primary transition-colors group">
+<div class="flex flex-col gap-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Discussion</h2>
+<p class="text-slate-600 dark:text-[#9dabb9] text-base leading-relaxed">Convert your notes into collaborative threads and shared discussion boards instantly.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] p-8 shadow-sm hover:border-primary transition-colors group">
+<div class="flex flex-col gap-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Notifications</h2>
+<p class="text-slate-600 dark:text-[#9dabb9] text-base leading-relaxed">Smart reminders and contextual alerts that keep your tasks visible and top-of-mind.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] p-8 shadow-sm hover:border-primary transition-colors group">
+<div class="flex flex-col gap-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Cross-Browser</h2>
+<p class="text-slate-600 dark:text-[#9dabb9] text-base leading-relaxed">A unified experience across Chrome, Firefox, and Edge with perfect synchronization.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-20 flex flex-col md:flex-row items-center gap-12 border-t border-slate-200 dark:border-[#283039] pt-20">
+<div class="flex-1 space-y-6">
+<h2 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight">Why choose Smart Notes?</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg">We prioritize your workflow and your data above all else. Here is our promise to you:</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<div class="flex gap-x-3 py-3 items-center">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<p class="text-slate-800 dark:text-white text-lg font-semibold leading-normal">Built for Speed</p>
+</div>
+<div class="flex gap-x-3 py-3 items-center">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<p class="text-slate-800 dark:text-white text-lg font-semibold leading-normal">Privacy First</p>
+</div>
+<div class="flex gap-x-3 py-3 items-center">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<p class="text-slate-800 dark:text-white text-lg font-semibold leading-normal">No Account Required</p>
+</div>
+<div class="flex gap-x-3 py-3 items-center">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<p class="text-slate-800 dark:text-white text-lg font-semibold leading-normal">Seamless Integration</p>
+</div>
+<div class="flex gap-x-3 py-3 items-center">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<p class="text-slate-800 dark:text-white text-lg font-semibold leading-normal">Offline Availability</p>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-sm">
+<div class="aspect-square bg-gradient-to-br from-primary to-blue-800 rounded-3xl p-1 shadow-2xl">
+<div class="w-full h-full bg-background-dark rounded-[calc(1.5rem-4px)] flex items-center justify-center p-8 overflow-hidden relative">
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 blur-3xl"></div>
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 blur-3xl"></div>
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-8xl text-primary mb-4 block">sticky_note_2</span>
+<div class="text-primary font-bold text-2xl">100k+ Users</div>
+<div class="text-slate-500 text-sm mt-1">Trusting Smart Notes daily</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 md:px-10 lg:px-40 py-24 bg-white dark:bg-background-dark" id="roadmap">
+<div class="mx-auto max-w-[1000px]">
+<div class="text-center mb-16">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest mb-4">Our Journey</h2>
+<h1 class="text-slate-900 dark:text-white text-4xl font-black md:text-5xl">Future Roadmap</h1>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 px-4 py-2 bg-primary/10 rounded-lg w-fit">
+<span class="material-symbols-outlined text-primary">fast_forward</span>
+<h3 class="text-primary font-bold">Nearly Future</h3>
+</div>
+<div class="space-y-4">
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+                                    Summarization
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Automatically condense long articles and research into actionable key bullet points.</p>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">folder_open</span>
+                                    Categorization
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Smart tagging that learns your workflow and organizes notes by topic automatically.</p>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+                                    Quick Search 2.0
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Enhanced instant search with fuzzy matching and priority relevance indexing.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 px-4 py-2 bg-slate-200 dark:bg-[#283039] rounded-lg w-fit">
+<span class="material-symbols-outlined text-slate-500">rocket_launch</span>
+<h3 class="text-slate-600 dark:text-slate-400 font-bold">Future</h3>
+</div>
+<div class="space-y-4">
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">search_insights</span>
+                                    Semantic Search
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Search by meaning, not just keywords. Find that "one thing" even if you forgot the title.</p>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">groups</span>
+                                    Team Workspace
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Collaborate on shared research boards and synced project notes in real-time.</p>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">terminal</span>
+                                    API Access
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Connect your notes to other productivity tools with our secure public API.</p>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-[#1c2127] rounded-xl border border-slate-200 dark:border-[#3b4754] shadow-sm">
+<h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">phone_iphone</span>
+                                    Mobile Application
+                                </h4>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm leading-relaxed">Dedicated iOS and Android apps for viewing and creating notes on the move.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-[#283039] py-12 px-6 lg:px-40">
+<div class="mx-auto max-w-[1000px] flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3 opacity-80">
+<div class="text-primary scale-75">
+<svg class="w-8 h-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="font-bold text-lg">Smart Notes</span>
+</div>
+<nav class="flex gap-8">
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<p class="text-slate-500 text-sm">© 2024 Smart Notes Inc.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
